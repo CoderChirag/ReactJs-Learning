@@ -34,3 +34,16 @@ My complete React JS Learning from beginner to Advanced Level.
 
 -   React became popular in a very short span of time as it developed a whole new way to build front end application.
     And at the same time, in 2014 Angular JS realized that the way they've architected their framework just didn't allow good applications to be built anymore, so they started rewriting their entire library and called it **Angular** (instead of AngularJS). But because they wanted to do an entire rewrite, a lot of people during that time moved to React.
+
+## Declarative vs Imperative
+
+-   Before React, we simply have to manipulate DOM using the Javascript directly or using the tools like Jquery or with some libraries. This approach of directly manipulating the DOM to change the individual parts of our app in response to various user events in called the **Imperative Paradigm**
+    <br>
+    The problem with the **Imperative** approach is that it becomes difficult to see the relationships between events and all the edge cases.
+    <br>
+
+-   According to React, DOM manipulation is one of the biggest performance bottlnecks. It takes a long time for DOM changes to happen.
+    So React says "Let me take care and I'll find the best way for me to change the DOM and just declare to me what your app looks like."
+    So the idea of a **Declarative approach** is that we didn't have to say to do this and if this happens do that in a sequential order, instead we tell this is the **state** of our app.
+    <br>
+    So the basic difference is that all the different states are accounted for in one place, i.e, one big Javascript object that describes how our app should look. This results in **less complexity**, **better code quality**, and **faster developer times**.
