@@ -51,3 +51,12 @@ My complete React JS Learning from beginner to Advanced Level.
 ## Component Architecture
 
 -   React has the idea of putting together small components to form bigger components, and these small small components can be reused to multpile locations and even in the multiple projects.
+
+## One Way Data Flow
+
+-   React uses the **state** and **components** and maintains a tree-like, lightweight Javascript Object called a **Virtual Dom**.
+-   **Virtual Dom** is basically a programming concept where an ideal, or "virtual", representation of a UI is kept in memory and synced with the "real" DOM by a library such as ReactDOM. This process is called **reconciliation**.
+    <br>
+
+-   Now this idea of **unidirectional data flow** means that any time we want something to change on our Web Page, the state has to change, ie., the data has to be changed on the App.
+    React as soon as state changes, reacts to the change, combines the new state and the components we have and updates the DOM. **Thus the data only flow one way (Only flows down in the tree and can never move up).**
