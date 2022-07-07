@@ -47,3 +47,7 @@ My complete React JS Learning from beginner to Advanced Level.
     So the idea of a **Declarative approach** is that we didn't have to say to do this and if this happens do that in a sequential order, instead we tell this is the **state** of our app.
     <br>
     So the basic difference is that all the different states are accounted for in one place, i.e, one big Javascript object that describes how our app should look. This results in **less complexity**, **better code quality**, and **faster developer times**.
+
+## Component Architecture
+
+-   React has the idea of putting together small components to form bigger components, and these small small components can be reused to multpile locations and even in the multiple projects.
