@@ -10,7 +10,16 @@ class App extends Component {
 		this.state = {
 			name: 'Chirag',
 		};
+
+		this.clickHandler = this.clickHandler.bind(this);
 	}
+
+	clickHandler() {
+		this.setState({
+			name: 'Coder Chirag',
+		});
+	}
+
 	render() {
 		return (
 			<div className='App'>
