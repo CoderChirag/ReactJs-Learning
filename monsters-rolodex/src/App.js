@@ -10,6 +10,9 @@ class App extends Component {
 		this.state = {
 			monsters: [],
 		};
+
+		this.searchInputChangeHandler =
+			this.searchInputChangeHandler.bind(this);
 	}
 
 	componentDidMount() {
@@ -24,9 +27,27 @@ class App extends Component {
 			});
 	}
 
+	searchInputChangeHandler(event) {
+		const searchTerm = event.target.value;
+		const filteredMonsters = this.state.monsters.filter(monster => {
+			return monster.name
+				.toLowerCase()
+				.includes(searchTerm.toLowerCase());
+		});
+		this.setState(() => {
+			return { monsters: filteredMonsters };
+		});
+	}
+
 	render() {
 		return (
 			<div className='App'>
+				<input
+					className='search0box'
+					type='search'
+					placeholder='search monsters'
+					onChange={this.searchInputChangeHandler}
+				/>
 				{this.state.monsters.map(monster => {
 					return (
 						<div key={monster.id}>
