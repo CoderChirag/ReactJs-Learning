@@ -15,9 +15,16 @@ class App extends Component {
 	}
 
 	clickHandler() {
-		this.setState({
-			name: 'Coder Chirag',
-		});
+		this.setState(
+			(state, props) => {
+				return {
+					name: 'Coder Chirag',
+				};
+			},
+			() => {
+				console.log(this.state);
+			}
+		);
 	}
 
 	render() {
