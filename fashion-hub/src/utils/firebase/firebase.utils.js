@@ -44,10 +44,7 @@ export const createUserDocumentFromAuth = async (
 
 	const userDocRef = doc(db, 'users', userAuth.uid);
 
-	console.log(userDocRef);
 	const snapshot = await getDoc(userDocRef);
-	console.log(snapshot);
-	console.log(snapshot.exists());
 
 	if (!snapshot.exists()) {
 		const { displayName, email } = userAuth;
