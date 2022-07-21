@@ -1,12 +1,14 @@
 import { useState } from 'react';
-import FormInput from '../../components/form-input/form-input.component';
-import Button from '../../components/button/button.component';
+
+import FormInput from '../form-input/form-input.component';
+import Button from '../button/button.component';
 
 import {
 	createAuthUserWithEmailAndPassword,
 	createUserDocumentFromAuth,
 } from '../../utils/firebase/firebase.utils';
-import './signup-form.styles.scss';
+
+import { SignUpContainer } from './signup-form.styles';
 
 const defaultFormFields = {
 	displayName: '',
@@ -23,14 +25,8 @@ const SignUpForm = () => {
 		setFormFields(defaultFormFields);
 	};
 
-	const handleChange = event => {
-		const { name, value } = event.target;
-		setFormFields({ ...formFields, [name]: value });
-	};
-
 	const handleSubmit = async event => {
 		event.preventDefault();
-		const { displayName, email, password, confirmPassword } = formFields;
 
 		if (password !== confirmPassword) {
 			alert('passwords do not match');
@@ -42,19 +38,26 @@ const SignUpForm = () => {
 				email,
 				password
 			);
+
 			await createUserDocumentFromAuth(user, { displayName });
 			resetFormFields();
-		} catch (err) {
-			if (err.code === 'auth/email-already-in-use') {
-				alert('Email already exists');
+		} catch (error) {
+			if (error.code === 'auth/email-already-in-use') {
+				alert('Cannot create user, email already in use');
 			} else {
-				console.log('user creation error', err);
+				console.log('user creation encountered an error', error);
 			}
 		}
 	};
 
+	const handleChange = event => {
+		const { name, value } = event.target;
+
+		setFormFields({ ...formFields, [name]: value });
+	};
+
 	return (
-		<div className='sign-up-container'>
+		<SignUpContainer>
 			<h2>Don't have an account?</h2>
 			<span>Sign up with your email and password</span>
 			<form onSubmit={handleSubmit}>
@@ -93,10 +96,9 @@ const SignUpForm = () => {
 					name='confirmPassword'
 					value={confirmPassword}
 				/>
-
 				<Button type='submit'>Sign Up</Button>
 			</form>
-		</div>
+		</SignUpContainer>
 	);
 };
 
