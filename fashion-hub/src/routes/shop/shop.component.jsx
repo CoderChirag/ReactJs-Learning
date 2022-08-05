@@ -11,7 +11,6 @@ import Category from '../category/category.component';
 const Shop = () => {
 	const dispatch = useDispatch();
 	useEffect(() => {
-		console.log(true);
 		const getCategoriesMap = async () => {
 			const categoriesArray = await getCategoriesAndDocuments();
 			console.log(categoriesArray);
